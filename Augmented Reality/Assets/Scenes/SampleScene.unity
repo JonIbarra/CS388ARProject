@@ -321,7 +321,6 @@ GameObject:
   - component: {fileID: 865191845}
   - component: {fileID: 865191844}
   - component: {fileID: 865191843}
-  - component: {fileID: 865191847}
   m_Layer: 0
   m_Name: ImageTarget
   m_TagString: Untagged
@@ -459,18 +458,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &865191847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865191842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35d0379503375894db34747e21d82f39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1310389999
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,9 +725,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2073817985}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78e1f4fe0da6850439eee71e7b1882ad, type: 3}
+  m_Script: {fileID: 11500000, guid: 73a6940f7a0c0034286e405fbce8d8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefab: {fileID: 536868187850670130, guid: dc70d9e2ab1319843b21a4324f1bd576, type: 3}
+  imageTransform: {fileID: 865191846}
 --- !u!1001 &2147146764
 PrefabInstance:
   m_ObjectHideFlags: 0
