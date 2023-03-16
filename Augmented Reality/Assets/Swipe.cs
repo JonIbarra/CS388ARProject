@@ -73,7 +73,7 @@ public class Swipe : MonoBehaviour
         }
     }
 
-    void ResetBall()
+    public void ResetBall()
     {
         if (physics_active)
         {

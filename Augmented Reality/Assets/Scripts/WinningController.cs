@@ -6,11 +6,12 @@ public class WinningController : MonoBehaviour
 {
     int mPoints;
     public UnityEngine.UI.Text mText;
+    bool active = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        active = true;
     }
 
     // Update is called once per frame
@@ -19,12 +20,19 @@ public class WinningController : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.name == "Sphere")
+        if (collision.gameObject.name == "Sphere" && active)
         {
             mPoints += 1;
             mText.text = "Points: " + mPoints;
+            active = false;
+            Invoke("Reset", 3);
         }
+    }
+
+    void Reset()
+    {
+        active = true;
     }
 }
