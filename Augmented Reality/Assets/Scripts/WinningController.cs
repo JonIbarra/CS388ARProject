@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasketSpawnController : MonoBehaviour
+public class WinningController : MonoBehaviour
 {
-    public GameObject mTargetObject;
-    GameObject mBasket;
+    int mPoints;
     public UnityEngine.UI.Text mText;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,15 +19,12 @@ public class BasketSpawnController : MonoBehaviour
         
     }
 
-    public void SpawnBasket()
+    private void OnCollisionEnter(Collision collision)
     {
-        mText.text = "Found Target";
+        if (collision.gameObject.name == "Sphere")
+        {
+            mPoints += 1;
+            mText.text = "Points: " + mPoints;
+        }
     }
-
-    public void DestroyBasket()
-    {
-        mText.text = "Target Lost";
-    }
-
-
 }
