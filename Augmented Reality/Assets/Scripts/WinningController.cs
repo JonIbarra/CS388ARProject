@@ -27,11 +27,10 @@ public class WinningController : MonoBehaviour
             mPoints += 1;
             mText.text = "Points: " + mPoints;
             active = false;
-            Invoke("Reset", 3);
         }
     }
 
-    void Reset()
+    public void Reset()
     {
         active = true;
     }

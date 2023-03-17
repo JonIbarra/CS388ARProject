@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class Swipe : MonoBehaviour
 {
-    Vector2 startPos;
-    Vector2 endPos;
-
-    float touchStartTime;
-    float touchEndTime;
-    float timeInterval;
-
     public float throwForceForward;
     public float throwForceUp;
 
@@ -22,6 +15,8 @@ public class Swipe : MonoBehaviour
     bool active;
 
     Vector3 dir;
+
+    public WinningController mWinCon;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +47,7 @@ public class Swipe : MonoBehaviour
             }
             else
             {
+                CancelInvoke("ResetBall");
                 ResetBall();
             }
         }
@@ -61,15 +57,6 @@ public class Swipe : MonoBehaviour
             Debug.Log("Location: " + offset);
 
             transform.position = new Vector3(mCamTransform.position.x + offset.x, mCamTransform.position.y + offset.y, mCamTransform.position.z + offset.z);
-        }
-
-        if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
-        {
-            touchEndTime = Time.time;
-            timeInterval = touchEndTime - touchStartTime;
-
-            endPos = Input.GetTouch(0).position;
-
         }
     }
 
@@ -81,6 +68,8 @@ public class Swipe : MonoBehaviour
             rb.useGravity = false;
             rb.isKinematic = false;
             rb.velocity = new Vector3(0, 0, 0);
+
+            mWinCon.Reset();
         }
     }
 
